@@ -15,7 +15,7 @@ const HomeScreen = () => {
     <View style={styles.container}>
 
       <View style={styles.topContainer}>
-        <TextInput style={styles.textInput} placeholder="O que deseja" />
+        <TextInput style={styles.textInput} placeholder="O que deseja?" />
       </View>
 
       <View style={styles.flatListContainer}>
