@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
-import UsuarioComponent from '../component/UsuarioComponent'
-import BarraBotoes from '../component/BarraBotoes'
+import UsuarioComponent from '../components/UsuarioComponent'
+import Barrabotoes from '../components/BarradosBotoes'
 
 const ServicoScreen = () => {
   return (
@@ -30,7 +30,7 @@ const ServicoScreen = () => {
                     </Text>
                 </View>
             </View>
-            <BarraBotoes />
+            <Barrabotoes />
         </View>
     </SafeAreaView>
   )
