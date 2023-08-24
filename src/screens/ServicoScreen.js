@@ -88,11 +88,11 @@ class ServicoScreen extends Component {
                   </View>
                   <View >
                     <Text style = {styles.nomeAvaliacao}>
-                      {this.state.nome[5]}
+                      {this.state.nome[1]}
                     </Text>
                     <Estrelas/>
                     <Text style = {styles.descAvaliacao}>
-                      {this.state.descricaoavaliacao[5]}
+                      {this.state.descricaoavaliacao[1]}
                     </Text>
                   </View>
                 </View>
