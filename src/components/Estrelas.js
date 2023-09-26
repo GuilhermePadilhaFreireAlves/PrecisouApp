@@ -25,7 +25,7 @@ export function Estrelas () {
         color='#F7DD69'
         />
         <FontAwesome
-        name='star-half-empty'
+        name='star'
         size={20}
         color='#F7DD69'
         />
