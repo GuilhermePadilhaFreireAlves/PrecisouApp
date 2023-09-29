@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     height: 90,
     borderRadius: 23,
     marginTop: 15,
-
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignSelf: 'center'
   },
   imageBtncasa: {
     width: 48,
