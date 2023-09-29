@@ -1,6 +1,9 @@
 import React from 'react'
 import { View, StyleSheet, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Barrabotoes from '../components/BarradosBotoes'
 export function ContaScreen () {
   return (
     <SafeAreaView>
@@ -46,31 +49,70 @@ export function ContaScreen () {
               <Text style={styles.textbtn}>Ajuda</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.btnAjuda}>
-            <AntDesign
-             name='questioncircleo'
+            <MaterialCommunityIcons
+             name='room-service-outline'
              size={30}
              color='black'
              />
-              <Text style={styles.textbtn}>aa</Text>
+              <Text style={styles.textbtn}>Serviços</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnAjuda}>
+            <MaterialIcons
+             name='payment'
+             size={30}
+             color='black'
+             />
+              <Text style={styles.textbtn}>Pagamento</Text>
           </TouchableOpacity>
         </View>
+
+          <TouchableOpacity style={styles.btnPrestadorServ}>
+          <Image
+                source={require('../../assets/imagens/suitcase.png')}
+                style={styles.imgwork}
+              />
+             <View style={styles.viewtxtprestserv} >
+              <Text style={styles.txtbtnprestserv}>Ganhe dinheiro como um prestador de serviços</Text>
+             </View>
+          </TouchableOpacity>
+        <View style={styles.viewbtnjuntos}>
+          <TouchableOpacity style={styles.btnconfig}>
+              <Text style={styles.textbtn}>Configurações</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnconfig}>
+              <Text style={styles.textbtn}>Serviços favoritos</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnconfig}>
+              <Text style={styles.textbtn}>Mensagens</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnconfig}>
+              <Text style={styles.textbtn}>Gerenciar conta</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnconfig}>
+              <Text style={styles.textbtn}>Termos e serviço</Text>
+            </TouchableOpacity>
+          </View>
+          <Barrabotoes />
       </View>
     </SafeAreaView>
   )
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: 30,
-    alignItems: 'center'
-
+    flex: 1
   },
   containerTopo: {
     backgroundColor: '#ADD9FF',
     width: 366,
     height: 121,
     borderRadius: 23,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: 30,
+    alignSelf: 'center'
 
   },
   imageUsuarioPrin: {
@@ -131,11 +173,58 @@ const styles = StyleSheet.create({
   },
   viewBotoes: {
     flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 20,
+    marginLeft: 10
+  },
+  viewbtnprestserv: {
+    width: 366,
+    height: 112,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  btnPrestadorServ: {
+    width: 366,
+    height: 112,
+    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 50
-  }
+    backgroundColor: '#ADD9FF',
+    borderRadius: 14,
+    flexDirection: 'row-reverse',
+    marginTop: 100
+  },
+  txtbtnprestserv: {
+    color: '#000000',
+    fontFamily: 'Neucha',
+    fontSize: 24
+  },
+  viewtxtprestserv: {
+    width: 214,
+    height: 60,
+    marginRight: 10
+  },
+  imgwork: {
+    width: 77,
+    height: 77
+  },
 
+  btnconfig: {
+    width: 366,
+    height: 44,
+    backgroundColor: '#F1F1F1',
+    borderRadius: 14,
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center'
+
+  },
+  viewbtnjuntos: {
+    marginTop: 20,
+    height: 300,
+    width: 390,
+    justifyContent: 'space-between'
+  }
 })
 
 export default ContaScreen
