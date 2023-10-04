@@ -6,12 +6,12 @@ import CadastroUsuario from '../screens/cadastroUsuario'
 import HomeScreen from '../screens/homeScreen'
 import ServicoScreen from '../screens/ServicoScreen'
 import ContaScreen from '../screens/contaScreen'
-import Barrabotoes from '../components/BarradosBotoes'
 const { Screen, Navigator } = createNativeStackNavigator()
 
 export function StackRoutes () {
   return (
         <Navigator screenOptions={{ headerShown: false }}>
+
             <Screen
             name = 'login1p'
             component={LoginScreen}
@@ -28,17 +28,13 @@ export function StackRoutes () {
             name = 'homep'
             component={HomeScreen}
             />
-              <Screen
-            name = 'servicop'
-            component={ServicoScreen}
-            />
-              <Screen
+            <Screen
             name = 'contap'
             component={ContaScreen}
             />
-             <Screen
-            name = 'barrabtnp'
-            component={Barrabotoes}
+              <Screen
+            name = 'servicop'
+            component={ServicoScreen}
             />
 
         </Navigator>
