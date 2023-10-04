@@ -107,10 +107,9 @@ class ServicoScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginTop: 15,
-    alignItems: 'center'
-
+    alignItems: 'center',
+    flex: 1
   },
   containerDescricao: {
     backgroundColor: '#ADD9FF',

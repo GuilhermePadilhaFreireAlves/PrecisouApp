@@ -7,13 +7,15 @@ import {
   SafeAreaView,
   StyleSheet
 } from 'react-native'
+import PropTypes from 'prop-types'
 
-const Barrabotoes = () => {
+const Barrabotoes = ({ navigation }) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.botaoview}>
-          <TouchableOpacity style={styles.btnBotoes}>
+          <TouchableOpacity style={styles.btnBotoes}
+          >
             <View style={styles.iconandname}>
               <Image
                 source={require('../../assets/imagens/casa2.png')}
@@ -51,6 +53,9 @@ const Barrabotoes = () => {
       </View>
     </SafeAreaView>
   )
+}
+Barrabotoes.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 const styles = StyleSheet.create({
   container: {

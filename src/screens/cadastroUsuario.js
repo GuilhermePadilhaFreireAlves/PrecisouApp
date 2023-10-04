@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
-
-const CadastroUsuario = () => {
+import PropTypes from 'prop-types'
+const CadastroUsuario = ({ navigation }) => {
   return (
     <View style = {styles.container}>
       <Image
@@ -27,15 +27,22 @@ const CadastroUsuario = () => {
         onChangeText={this.senha}
       />
 
-          <TouchableOpacity style={styles.Loginbotao}>
+          <TouchableOpacity style={styles.Loginbotao}
+          onPress={() => navigation.navigate('contap')}
+          >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaocadastro}>
+        <TouchableOpacity style={styles.botaocadastro}
+        onPress={() => navigation.navigate('login2p')}
+        >
           <Text style={styles.buttonTextLog}>Já possui uma conta? Login</Text>
         </TouchableOpacity>
     </View>
   )
+}
+CadastroUsuario.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 const styles = StyleSheet.create({
   container: {

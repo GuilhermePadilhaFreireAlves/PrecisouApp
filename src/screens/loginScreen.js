@@ -1,31 +1,38 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
-
-const LoginScreen = () => {
+import PropTypes from 'prop-types'
+const LoginScreen = ({ navigation }) => {
   return (
 
     <View style={styles.container}>
-      <View style = {styles.container2}>
-      <Image
-      source = {require('../../assets/imagens/logo.png')} style = {styles.imageLayout}
-      />
-      <Image
-      source = {require('../../assets/imagens/textologo.png')} style = {styles.textoimagem}
-      />
+      <View style={styles.container2}>
+        <Image
+          source={require('../../assets/imagens/logo.png')} style={styles.imageLayout}
+        />
+        <Image
+          source={require('../../assets/imagens/textologo.png')} style={styles.textoimagem}
+        />
 
       </View>
 
-      <View style = {styles.container3}>
-        <TouchableOpacity style={styles.loginButton}>
+      <View style={styles.container3}>
+        <TouchableOpacity style={styles.loginButton}
+          onPress={() => navigation.navigate('login2p')}
+        >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.signupButton}>
+        <TouchableOpacity style={styles.signupButton}
+          onPress={() => navigation.navigate('cadastroUsuariop')}
+        >
           <Text style={styles.buttonText}>Cadastre-se</Text>
         </TouchableOpacity>
       </View>
 
     </View>
   )
+}
+LoginScreen.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 
 const styles = StyleSheet.create({

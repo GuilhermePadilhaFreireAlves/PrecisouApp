@@ -4,7 +4,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Barrabotoes from '../components/BarradosBotoes'
-export function ContaScreen () {
+import PropTypes from 'prop-types'
+export function ContaScreen ({ navigation }) {
   return (
     <SafeAreaView>
       <View style = {styles.container}>
@@ -77,29 +78,52 @@ export function ContaScreen () {
           </TouchableOpacity>
         <View style={styles.viewbtnjuntos}>
           <TouchableOpacity style={styles.btnconfig}>
-              <Text style={styles.textbtn}>Configurações</Text>
+          <Image
+                source={require('../../assets/imagens/config.png')}
+                style={styles.imgbtnconfig}
+              />
+              <Text style={styles.textbtn}>Configurações    </Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btnconfig}>
+            <Image
+                source={require('../../assets/imagens/coracao.png')}
+                style={styles.imgbtnconfig}
+              />
               <Text style={styles.textbtn}>Serviços favoritos</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btnconfig}>
-              <Text style={styles.textbtn}>Mensagens</Text>
+            <Image
+                source={require('../../assets/imagens/message.png')}
+                style={styles.imgbtnconfig}
+              />
+              <Text style={styles.textbtn}>Mensagens        </Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btnconfig}>
-              <Text style={styles.textbtn}>Gerenciar conta</Text>
+            <Image
+                source={require('../../assets/imagens/usuario.png')}
+                style={styles.imgbtnconfig}
+              />
+              <Text style={styles.textbtn}>Gerenciar conta  </Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btnconfig}>
-              <Text style={styles.textbtn}>Termos e serviço</Text>
+            <Image
+                source={require('../../assets/imagens/ter.png')}
+                style={styles.imgbtnconfig}
+              />
+              <Text style={styles.textbtn}>Termos e serviço  </Text>
             </TouchableOpacity>
           </View>
           <Barrabotoes />
       </View>
     </SafeAreaView>
   )
+}
+ContaScreen.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 const styles = StyleSheet.create({
   container: {
@@ -176,6 +200,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginTop: 20,
     marginLeft: 10
+
   },
   viewbtnprestserv: {
     width: 366,
@@ -214,16 +239,21 @@ const styles = StyleSheet.create({
     height: 44,
     backgroundColor: '#F1F1F1',
     borderRadius: 14,
+    justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    justifyContent: 'center'
-
+    flexDirection: 'row'
   },
   viewbtnjuntos: {
     marginTop: 20,
     height: 300,
     width: 390,
     justifyContent: 'space-between'
+  },
+  imgbtnconfig: {
+    width: 29,
+    height: 29,
+    marginRight: 10
   }
 })
 

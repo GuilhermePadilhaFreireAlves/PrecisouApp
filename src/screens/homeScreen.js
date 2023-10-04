@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native'
-
-const HomeScreen = () => {
+import PropTypes from 'prop-types'
+const HomeScreen = ({ navigation }) => {
   const data = [
     {
       name: 'Guilherme Pontes',
@@ -39,7 +39,9 @@ const HomeScreen = () => {
     </View>
   )
 }
-
+HomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,

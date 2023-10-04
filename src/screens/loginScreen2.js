@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
-
-const LoginScreen2 = () => {
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView } from 'react-native'
+import PropTypes from 'prop-types'
+const LoginScreen2 = ({ navigation }) => {
   return (
+    <SafeAreaView style = {styles.container1}>
     <View style = {styles.container}>
       <Image
       source = {require('../../assets/imagens/logo.png')} style = {styles.imageLayout}
@@ -21,20 +22,31 @@ const LoginScreen2 = () => {
         onChangeText={this.senha}
       />
 
-          <TouchableOpacity style={styles.Loginbotao}>
+          <TouchableOpacity style={styles.Loginbotao}
+          onPress={() => navigation.navigate('contap')}
+          >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.botaocadastro}>
+        <TouchableOpacity style={styles.botaocadastro}
+         onPress={() => navigation.navigate('cadastroUsuariop')}
+        >
           <Text style={styles.buttonTextCad}>Não tem uma conta? Cadastre-se</Text>
         </TouchableOpacity>
     </View>
+    </SafeAreaView>
   )
+}
+LoginScreen2.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#ffffff'
+  },
+  container1: {
+    flex: 1
   },
   imageLayout: {
     marginTop: 25,
@@ -72,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
-    marginTop: 130
+    marginTop: 100
 
   },
   buttonText: {
