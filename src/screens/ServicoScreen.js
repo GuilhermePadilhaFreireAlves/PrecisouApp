@@ -1,33 +1,40 @@
-import React, { Component } from 'react'
+import React, { } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native'
 import UsuarioComponent from '../components/UsuarioComponent'
 import Barrabotoes from '../components/BarradosBotoes'
 import { Estrelas } from '../components/Estrelas'
-class ServicoScreen extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
 
-      nome: [
-        'Joao Henrique',
-        'Marcos Pedro',
-        'Guilherme Pontes',
-        'Valdir Bisse',
-        'Fernando dos Santos'
-      ],
-      descricaoavaliacao: [
-        'Bom trabalho, recomendo muito, chegou no horário muito simpático',
-        'Otimo trabalho, recomendo muito, chegou no horário muito simpático',
-        'Medio trabalho, recomendo muito, chegou no horário muito simpático',
-        'Maravilhoso trabalho, recomendo muito, chegou no horário muito simpático',
-        'Mais ou menos viu, trabalho, recomendo muito, chegou no horário muito simpático'
+const comentarios = [
+  {
+    nome: 'Marcos',
+    comentario: 'Otimo trabalho, recomendo muito, chegou no horário muito simpático',
+    foto: '../../assets/imagens/usuario.png'
+  },
+  {
+    nome: 'Seu madruga',
+    comentario: 'Medio trabalho, recomendo muito, chegou no horário muito simpático',
+    foto: '../../assets/imagens/usuario.png'
+  },
+  {
+    nome: 'Quico',
+    comentario: 'Maravilhoso trabalho, recomendo muito, chegou no horário muito simpático',
+    foto: '../../assets/imagens/usuario.png'
+  },
+  {
+    nome: 'Chiquinha',
+    comentario: 'Mais ou menos viu, trabalho, recomendo muito, chegou no horário muito simpático',
+    foto: '../../assets/imagens/usuario.png'
+  },
+  {
+    nome: 'Dona Florinda',
+    comentario: 'HORRIVEL MUITO RUIM BOSTAAAAAA',
+    foto: '../../assets/imagens/usuario.png'
 
-      ]
-    }
   }
+]
 
-  render () {
-    return (
+export function ServicoScreen () {
+  return (
     <SafeAreaView>
         <View style = {styles.container}>
             <UsuarioComponent/>
@@ -45,64 +52,26 @@ class ServicoScreen extends Component {
             </View>
             <View style = {styles.containerAvaliações}>
                 <Text style = {styles.textAvaliacoes}>
-                    Avaliações
+                    Avaliações:
                 </Text>
 
                 <ScrollView showsVerticalScrollIndicator = {false}>
                 <View style = {styles.containerAvaliacoestexto}>
-                  <View >
-                    <Text style = {styles.nomeAvaliacao}>
-                      {this.state.nome[1]}
-                    </Text>
-                    <Estrelas/>
-                    <Text style = {styles.descAvaliacao}>
-                      {this.state.descricaoavaliacao[1]}
-                    </Text>
-                  </View>
-                  <View >
-                    <Text style = {styles.nomeAvaliacao}>
-                      {this.state.nome[2]}
-                    </Text>
-                    <Estrelas/>
-                    <Text style = {styles.descAvaliacao}>
-                      {this.state.descricaoavaliacao[2]}
-                    </Text>
-                  </View>
-                  <View >
-                    <Text style = {styles.nomeAvaliacao}>
-                      {this.state.nome[3]}
-                    </Text>
-                    <Estrelas/>
-                    <Text style = {styles.descAvaliacao}>
-                      {this.state.descricaoavaliacao[3]}
-                    </Text>
-                  </View>
-                  <View >
-                    <Text style = {styles.nomeAvaliacao}>
-                      {this.state.nome[4]}
-                    </Text>
-                    <Estrelas/>
-                    <Text style = {styles.descAvaliacao}>
-                      {this.state.descricaoavaliacao[4]}
-                    </Text>
-                  </View>
-                  <View >
-                    <Text style = {styles.nomeAvaliacao}>
-                      {this.state.nome[1]}
-                    </Text>
-                    <Estrelas/>
-                    <Text style = {styles.descAvaliacao}>
-                      {this.state.descricaoavaliacao[1]}
-                    </Text>
-                  </View>
+                {comentarios.map((comentario, index) => (
+                <View key={index} style={styles.avaliacaoItem}>
+                  <Text style={styles.nomeAvaliacao}>{comentario.nome}</Text>
+                  <Estrelas/>
+                  <Text style={styles.descAvaliacao}>{comentario.comentario}</Text>
+                </View>
+                ))}
+
                 </View>
                 </ScrollView>
             </View>
             <Barrabotoes />
         </View>
     </SafeAreaView>
-    )
-  }
+  )
 }
 
 const styles = StyleSheet.create({
