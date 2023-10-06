@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
+import Barrabotoes from '../components/BarradosBotoes'
 const HomeScreen = ({ navigation }) => {
   const data = [
     {
@@ -31,11 +32,7 @@ const HomeScreen = ({ navigation }) => {
           )}
         />
       </View>
-      <View style={styles.bottomContainer}>
-        <Text style={styles.tabItem}>Inicio</Text>
-        <Text style={styles.tabItem}>Servicos</Text>
-        <Text style={styles.tabItem}>Contas</Text>
-      </View>
+     <Barrabotoes/>
     </View>
   )
 }
