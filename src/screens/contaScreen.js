@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     width: 91,
     height: 71,
     borderRadius: 14,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#E9E9E9',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   btnconfig: {
     width: 366,
     height: 44,
-    backgroundColor: '#F1F1F1',
+    backgroundColor: '#E9E9E9',
     borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
