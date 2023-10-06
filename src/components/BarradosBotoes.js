@@ -7,14 +7,20 @@ import {
   SafeAreaView,
   StyleSheet
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import PropTypes from 'prop-types'
+const Barrabotoes = () => {
+  const navigation = useNavigation()
 
-const Barrabotoes = ({ navigation }) => {
+  const navigateToScreen = (screenName) => {
+    navigation.navigate(screenName)
+  }
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.botaoview}>
           <TouchableOpacity style={styles.btnBotoes}
+            onPress={() => navigateToScreen('homep')}
           >
             <View style={styles.iconandname}>
               <Image
@@ -28,7 +34,9 @@ const Barrabotoes = ({ navigation }) => {
         </View>
 
         <View style={styles.botaoview2}>
-          <TouchableOpacity style={styles.btnBotoes}>
+          <TouchableOpacity style={styles.btnBotoes}
+          onPress={() => navigateToScreen('servicop')}
+          >
             <View style={styles.iconandname}>
               <Image
                 source={require('../../assets/imagens/servico.png')}
@@ -40,7 +48,9 @@ const Barrabotoes = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={styles.botaoview2}>
-          <TouchableOpacity style={styles.btnBotoes}>
+          <TouchableOpacity style={styles.btnBotoes}
+          onPress={() => navigateToScreen('contap')}
+          >
             <View style={styles.iconandname}>
               <Image
                 source={require('../../assets/imagens/usuario.png')}
