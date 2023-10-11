@@ -6,13 +6,15 @@ import { View, StyleSheet } from 'react-native'
 // import HomeScreen from './src/screens/homeScreen'
 // import ServicoScreen from './src/screens/ServicoScreen'
 // import ContaScreen from './src/screens/contaScreen'
-// import Teste from './src/screens/teste'
+// import aaaa from './src/screens/teste'
 import { Routes } from './src/routes'
+// import Boracai from './src/screens/teste2'
+
 const App = () => {
   return (
 
     <View style={styles.container}>
-     <Routes/>
+    <Routes/>
     </View>
 
   )

@@ -28,7 +28,7 @@ const CadastroUsuario = ({ navigation }) => {
       />
 
           <TouchableOpacity style={styles.Loginbotao}
-          onPress={() => navigation.navigate('contap')}
+          onPress={() => navigation.navigate('homep')}
           >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>

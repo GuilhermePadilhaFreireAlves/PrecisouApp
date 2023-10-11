@@ -8,7 +8,6 @@ import {
   StyleSheet
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import PropTypes from 'prop-types'
 const Barrabotoes = () => {
   const navigation = useNavigation()
 
@@ -64,9 +63,7 @@ const Barrabotoes = () => {
     </SafeAreaView>
   )
 }
-Barrabotoes.propTypes = {
-  navigation: PropTypes.object.isRequired
-}
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ADD9FF',
