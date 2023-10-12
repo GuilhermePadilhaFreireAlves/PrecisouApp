@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "876479483515",
+    "project_id": "tccprecisou",
+    "storage_bucket": "tccprecisou.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876479483515:android:215c00e6f761f8e27d9cde",
+        "android_client_info": {
+          "package_name": "com.tccprecisouofc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClS9Z5sl4SihyYUbSdGZQA9VMbEUvBfrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
