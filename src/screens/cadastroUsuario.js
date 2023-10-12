@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import PropTypes from 'prop-types'
+import { AccountForm } from '../components/forms/accountform'
 const CadastroUsuario = ({ navigation }) => {
   return (
     <View style = {styles.container}>
@@ -9,30 +10,7 @@ const CadastroUsuario = ({ navigation }) => {
       />
       <Text style = {styles.textotitulo}>Crie uma conta</Text>
 
-      <TextInput style = {styles.inputnome }
-        placeholder="Nome:"
-        underlineColorAndroid='rgb(79, 172, 254)'
-        onChangeText={this.nome}
-      />
-
-      <TextInput style = {styles.input }
-        placeholder="Email:"
-        underlineColorAndroid='rgb(79, 172, 254)'
-        onChangeText={this.email}
-      />
-
-      <TextInput style = {styles.inputsenha }
-        placeholder="Senha:"
-        underlineColorAndroid='rgb(79, 172, 254)'
-        onChangeText={this.senha}
-      />
-
-          <TouchableOpacity style={styles.Loginbotao}
-          onPress={() => navigation.navigate('homep')}
-          >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-
+        <AccountForm/>
         <TouchableOpacity style={styles.botaocadastro}
         onPress={() => navigation.navigate('login2p')}
         >
@@ -107,7 +85,7 @@ const styles = StyleSheet.create({
   botaocadastro: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10
+    marginBottom: 50
 
   },
   buttonTextLog: {

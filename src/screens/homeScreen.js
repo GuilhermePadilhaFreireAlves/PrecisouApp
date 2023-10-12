@@ -1,15 +1,34 @@
 import React from 'react'
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
+import { Header } from '../components/header'
 import Barrabotoes from '../components/BarradosBotoes'
-const HomeScreen = ({ navigation }) => {
+export function HomeScreen () {
   const data = [
     {
       name: 'Guilherme Pontes',
       stars: '5',
       description: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
+    },
+    {
+      name: 'bebe',
+      stars: '5',
+      description: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
+    },
+    {
+      name: 'Guilherme Pontes',
+      stars: '5',
+      description: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
+    },
+    {
+      name: 'Guilherme Pontes',
+      stars: '5',
+      description: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
+    },
+    {
+      name: 'Guilherme Pontes',
+      stars: '5',
+      description: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
     }
-
   ]
 
   return (
@@ -18,6 +37,7 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.topContainer}>
         <TextInput style={styles.textInput} placeholder="O que deseja?" />
       </View>
+      <Header/>
 
       <View style={styles.flatListContainer}>
         <FlatList
@@ -35,9 +55,6 @@ const HomeScreen = ({ navigation }) => {
      <Barrabotoes/>
     </View>
   )
-}
-HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired
 }
 const styles = StyleSheet.create({
   container: {
@@ -76,7 +93,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 10,
     borderRadius: 8,
-    marginTop: 200
+    marginTop: 20
   },
   name: {
     fontSize: 30,
@@ -89,7 +106,11 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     marginTop: 5
+  },
+  btnBotoes: {
+    backgroundColor: 'black'
   }
+
 })
 
 export default HomeScreen

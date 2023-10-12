@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
 import PropTypes from 'prop-types'
+import { SignInForm } from '../components/forms/signinform'
 const LoginScreen2 = ({ navigation }) => {
   return (
     <SafeAreaView style = {styles.container1}>
@@ -10,28 +11,8 @@ const LoginScreen2 = ({ navigation }) => {
       />
       <Text style = {styles.textotitulo}>Entrar</Text>
 
-      <TextInput style = {styles.input }
-        placeholder="Email:"
-        underlineColorAndroid='rgb(79, 172, 254)'
-        onChangeText={this.email}
-      />
+        <SignInForm/>
 
-      <TextInput style = {styles.inputsenha }
-        placeholder="Senha:"
-        underlineColorAndroid='rgb(79, 172, 254)'
-        onChangeText={this.senha}
-      />
-
-          <TouchableOpacity style={styles.Loginbotao}
-          onPress={() => navigation.navigate('homep')}
-          >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.botaocadastro}
-         onPress={() => navigation.navigate('cadastroUsuariop')}
-        >
-          <Text style={styles.buttonTextCad}>Não tem uma conta? Cadastre-se</Text>
-        </TouchableOpacity>
     </View>
     </SafeAreaView>
   )
