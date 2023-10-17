@@ -4,10 +4,9 @@ import { StackRoutes } from './stack.routes'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import HomeScreen from '../screens/homeScreen'
 import { AuthRoutes } from './auth.routes'
+import NomeProvider from '../contexts/nomeContext'
+
 export function Routes() {
-  interface SomeProps {
-    user: FirebaseAuthTypes.User;
-  }
   const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
 
   useEffect(() => {
@@ -16,8 +15,9 @@ export function Routes() {
   }, [])
   return (
     <NavigationContainer>
-      {user ? <HomeScreen /> : <AuthRoutes />}
-
+      <NomeProvider>
+        {user ? <StackRoutes /> : <AuthRoutes />}
+      </NomeProvider>
     </NavigationContainer>
   )
 }
