@@ -23,7 +23,10 @@ export function SignInForm () {
         Alert.alert('Logado com sucesso!')
         setIsLoading(false)
       })
-      .catch((error) => console.log(error))
+      .catch(error => {
+        console.log(error)
+        Alert.alert('ERRO', 'Senha ou email incorreto')
+      })
   }
   function handleForgotPassword () {
     auth()
