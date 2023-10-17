@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, StyleSheet, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Barrabotoes from '../components/BarradosBotoes'
 import PropTypes from 'prop-types'
+import { NomeContext } from '../contexts/nomeContext'
 export function ContaScreen ({ navigation }) {
+  const { nomepa } = useContext(NomeContext)
   return (
     <SafeAreaView>
       <View style = {styles.container}>
@@ -17,7 +19,7 @@ export function ContaScreen ({ navigation }) {
           <View style = {styles.containeritensTopo}>
             <View style = {styles.conatinerestrelaeNome}>
               <Text style = {styles.Usuariotext}>
-                Guilherme Pontes
+                {nomepa}
               </Text>
               <View style = {styles.containerEstrelaUsu}>
               <Image
@@ -247,7 +249,6 @@ const styles = StyleSheet.create({
   viewbtnjuntos: {
     marginTop: 20,
     height: 300,
-    width: 390,
     justifyContent: 'space-between'
   },
   imgbtnconfig: {
