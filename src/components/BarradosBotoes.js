@@ -34,7 +34,7 @@ const Barrabotoes = () => {
 
         <View style={styles.botaoview2}>
           <TouchableOpacity style={styles.btnBotoes}
-          onPress={() => navigateToScreen('servicop')}
+          onPress={() => navigateToScreen('servicoprincipalp')}
           >
             <View style={styles.iconandname}>
               <Image
