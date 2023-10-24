@@ -18,6 +18,7 @@ export function Header () {
 const styles = StyleSheet.create({
   container: {
 
-    backgroundColor: 'ADD9FF'
+    backgroundColor: 'ADD9FF',
+    height: 30
   }
 })
