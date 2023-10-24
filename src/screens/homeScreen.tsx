@@ -10,7 +10,7 @@ export function HomeScreen() {
 
   const data = [
     {
-      name: 'euilherme Pontes',
+      name: 'Guilherme Pontes',
       stars: '5',
       description: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
     },
@@ -50,7 +50,9 @@ export function HomeScreen() {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <View style={styles.listItem}>
-              <Text style={styles.name}>{item.name}</Text>
+              <TouchableOpacity>
+                <Text style={styles.name}>{item.name}</Text>
+              </TouchableOpacity>
               <Text style={styles.stars}>Stars: {item.stars}</Text>
               <Text style={styles.description}>{item.description}</Text>
             </View>
@@ -64,14 +66,14 @@ export function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'ADD9FF'
+    backgroundColor: '#ADD9FF'
   },
   topContainer: {
     backgroundColor: 'white',
     padding: 20
   },
   textInput: {
-    backgroundColor: '#4FACFE',
+    backgroundColor: '#ADD9FF',
     padding: 10,
     borderRadius: 8
 
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
-    backgroundColor: '#4FACFE'
+    backgroundColor: '#ADD9FF'
 
   },
   tabItem: {
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
 
   },
   listItem: {
-    backgroundColor: '#4FACFE',
+    backgroundColor: '#ADD9FF',
     padding: 20,
     marginBottom: 10,
     borderRadius: 8,
