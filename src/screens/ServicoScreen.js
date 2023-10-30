@@ -1,6 +1,5 @@
-import React, { } from 'react'
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native'
-import UsuarioComponent from '../components/UsuarioComponent'
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity } from 'react-native'
 import Barrabotoes from '../components/BarradosBotoes'
 import { Estrelas } from '../components/Estrelas'
 
@@ -11,43 +10,87 @@ const comentarios = [
     foto: '../../assets/imagens/usuario.png'
   },
   {
-    nome: 'Seu madruga',
+    nome: 'Pedro',
     comentario: 'Medio trabalho, recomendo muito, chegou no horário muito simpático',
     foto: '../../assets/imagens/usuario.png'
   },
   {
-    nome: 'Quico',
+    nome: 'Maria Clara',
     comentario: 'Maravilhoso trabalho, recomendo muito, chegou no horário muito simpático',
     foto: '../../assets/imagens/usuario.png'
   },
   {
-    nome: 'Chiquinha',
+    nome: 'Carlos',
     comentario: 'Mais ou menos viu, trabalho, recomendo muito, chegou no horário muito simpático',
     foto: '../../assets/imagens/usuario.png'
   },
   {
-    nome: 'Dona Florinda',
-    comentario: 'HORRIVEL MUITO RUIM BOSTAAAAAA',
+    nome: 'João',
+    comentario: 'Otimo trabalho',
     foto: '../../assets/imagens/usuario.png'
 
   }
 ]
 
-export function ServicoScreen () {
+export function ServicoScreen ({ route }) {
+  const { serviceData } = route.params
+  const [exibirnomeprestador] = useState(serviceData.nomeprestador)
+  const [exibirdescricao] = useState(serviceData.descric)
+  const [exibirpreco] = useState(serviceData.precoprestador)
+
   return (
     <SafeAreaView>
         <View style = {styles.container}>
-            <UsuarioComponent/>
+        <View style = {styles.containerTopo}>
+
+<Image
+    source = {require('../../assets/imagens/usuario.png')} style = {styles.imageUsuarioPrin}
+/>
+    <View style = {styles.containeritensTopo}>
+
+    <View style = {styles.conatinerestrelaeNome}>
+        <Text style = {styles.Usuariotext}>
+           {exibirnomeprestador}
+        </Text>
+        <View style = {styles.containerEstrelaUsu}>
+            <Image
+                source = {require('../../assets/imagens/star.png')} style = {styles.imageestrelaUsu}
+            />
+               <Image
+                source = {require('../../assets/imagens/star.png')} style = {styles.imageestrelaUsu}
+            />
+               <Image
+                source = {require('../../assets/imagens/star.png')} style = {styles.imageestrelaUsu}
+            />
+               <Image
+                source = {require('../../assets/imagens/star.png')} style = {styles.imageestrelaUsu}
+            />
+               <Image
+                source = {require('../../assets/imagens/star.png')} style = {styles.imageestrelaUsu}
+            />
+        </View>
+        </View>
+
+            <TouchableOpacity style = {styles.btnIniciarBatePapo}>
+            <Image
+                source = {require('../../assets/imagens/batepapo.png')} style = {styles.imageBtnBatePapo}
+            />
+                <Text style = {styles.textIniciarBatePapo}>Iniciar Bate-Papo</Text>
+            </TouchableOpacity>
+
+    </View>
+
+</View>
 
             <View style = {styles.containerDescricao}>
                 <Text style = {styles.textTituloServ}>
                   Serviços
                 </Text>
                 <Text style = {styles.textDescricaoServ}>
-                    Faço de casa, limpo os moveis, portas e janelas, adoro cachorros e gatos, mas caso sejam agressivos, por favor preendam-os. Os valores variam de caso para caso
+                   {exibirdescricao}
                 </Text>
                 <Text style = {styles.textmoney}>
-                           Valor : R$ 100 - 200
+                           {exibirpreco}
                 </Text>
             </View>
             <View style = {styles.containerAvaliações}>
@@ -85,7 +128,7 @@ const styles = StyleSheet.create({
     width: 366,
     height: 195,
     borderRadius: 23,
-    marginTop: 165
+    marginTop: 15
 
   },
   textTituloServ: {
@@ -145,7 +188,78 @@ const styles = StyleSheet.create({
     marginLeft: 17,
     marginRight: 17,
     textAlign: 'justify'
-  }
+  },
+  containerTopo: {
+    backgroundColor: '#ADD9FF',
+    width: 366,
+    height: 150,
+    borderRadius: 23,
+    flexDirection: 'row'
 
+  },
+  Usuariotext: {
+
+    fontSize: 24,
+    fontFamily: 'Neucha',
+    color: '#000000',
+    marginLeft: 5,
+    marginBottom: 2
+
+  },
+  imageUsuarioPrin: {
+    width: 65,
+    height: 64,
+    marginTop: 30,
+    marginLeft: 15
+
+  },
+  imageestrelaUsu: {
+    width: 20,
+    height: 20,
+    marginLeft: 8
+
+  },
+  containerEstrelaUsu: {
+    backgroundColor: '#FFFFFF',
+    width: 154,
+    height: 24,
+    borderRadius: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 5
+
+  },
+  containeritensTopo: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 5,
+    marginBottom: 5
+  },
+  btnIniciarBatePapo: {
+    backgroundColor: '#F5F5F5',
+    height: 25,
+    width: 159,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    flexDirection: 'row'
+
+  },
+  textIniciarBatePapo: {
+    color: '#000000',
+    fontFamily: 'Neucha',
+    fontSize: 15,
+    marginLeft: 15
+  },
+  imageBtnBatePapo: {
+    height: 22,
+    width: 21
+
+  },
+  conatinerestrelaeNome: {
+    marginTop: 15
+  }
 })
 export default ServicoScreen
