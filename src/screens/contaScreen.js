@@ -69,7 +69,9 @@ export function ContaScreen ({ navigation }) {
           </TouchableOpacity>
         </View>
 
-          <TouchableOpacity style={styles.btnPrestadorServ}>
+          <TouchableOpacity style={styles.btnPrestadorServ}
+          onPress={() => navigation.navigate('cadastroprestadorp')}
+          >
           <Image
                 source={require('../../assets/imagens/suitcase.png')}
                 style={styles.imgwork}
