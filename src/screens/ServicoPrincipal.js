@@ -18,6 +18,7 @@ function ServicoPrincipal ({ navigation }) {
             key: childItem.key,
             nomeprestador: childItem.val().NomeP,
             tiposervico: childItem.val().Tiposerv,
+            descric: childItem.val().Desc,
             precoprestador: childItem.val().Preco
           }
           setServiceData(oldArray => [...oldArray, data])
@@ -81,6 +82,8 @@ function ServicoPrincipal ({ navigation }) {
             <View style={styles.viewbtnprestadores} key={key}>
               <Text style={styles.txttitulobtn}>{service.tiposervico}</Text>
               <TouchableOpacity style={styles.btnprestadores}
+              onPress={() => navigation.navigate('servicop', { serviceData: service })}
+
               >
                 <View style={styles.viewimgnomeestrela}>
                 <Image
