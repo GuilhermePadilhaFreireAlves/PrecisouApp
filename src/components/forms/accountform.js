@@ -49,7 +49,7 @@ export function AccountForm () {
   return (
 
       <View style={styles.container}>
-            <TextInput
+          <TextInput
           style={styles.input}
           placeholder="Nome:"
           underlineColorAndroid="rgb(79, 172, 254)"
@@ -79,9 +79,13 @@ export function AccountForm () {
         </TouchableOpacity>
 
         </View>
+
   )
 }
 const styles = StyleSheet.create({
+  containerKeyboard: {
+    flex: 1
+  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -116,15 +120,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#ffff',
     fontFamily: 'Neucha'
-  },
-  botaocadastro: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10
-  },
-  buttonTextLog: {
-    fontSize: 20,
-    color: '#289AFF',
-    fontFamily: 'Neucha'
   }
+
 })
