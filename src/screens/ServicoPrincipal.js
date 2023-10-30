@@ -9,6 +9,8 @@ import database from '@react-native-firebase/database'
 function ServicoPrincipal ({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false)
   const [serviceData, setServiceData] = useState([])
+  const [lista, setLista] = useState(serviceData)
+  const [searchText, setSearchText] = useState('')
   useEffect(() => {
     async function dadosq () {
       database().ref('prestadores').on('value', (snapshot) => {
@@ -19,7 +21,8 @@ function ServicoPrincipal ({ navigation }) {
             nomeprestador: childItem.val().NomeP,
             tiposervico: childItem.val().Tiposerv,
             descric: childItem.val().Desc,
-            precoprestador: childItem.val().Preco
+            precoprestador: childItem.val().Preco,
+            telefone: childItem.val().Tel
           }
           setServiceData(oldArray => [...oldArray, data])
         })
@@ -27,11 +30,46 @@ function ServicoPrincipal ({ navigation }) {
     }
     dadosq()
   }, [])
+  useEffect(() => {
+    setLista(serviceData)
+  }, [serviceData])
+
+  useEffect(() => {
+    if (searchText === '') {
+      setLista(serviceData)
+    } else {
+      setLista(
+        serviceData.filter(item => {
+          return (item.tiposervico.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
+        })
+      )
+    }
+  }, [searchText])
+
+  const handleOrderClick = () => {
+    const newlista = [...serviceData]
+    newlista.sort((a, b) => {
+      if (a.tiposervico > b.tiposervico) {
+        return 1
+      } else {
+        if (b.tiposervico > a.tiposervico) {
+          return -1
+        } else {
+          return 0
+        }
+      }
+    })
+    setLista(newlista)
+  }
 
   return (
     <View style={styles.container}>
+
       <View style={styles.topContainer}>
-        <TextInput style={styles.textInput} placeholder="O que deseja?" />
+        <TextInput style={styles.textInput} placeholder="O que deseja?"
+        value={searchText}
+        onChangeText={(t) => setSearchText(t)}
+        />
       </View>
 
       <View>
@@ -45,7 +83,6 @@ function ServicoPrincipal ({ navigation }) {
           ]}>
           <Text style={styles.txtservicodom}>Serviços Domesticos</Text>
         </TouchableOpacity>
-
         <Modal
           animationType="fade"
           visible={modalVisible}
@@ -67,7 +104,9 @@ function ServicoPrincipal ({ navigation }) {
           />
           <Text style={styles.txtFiltrar}>Filtrar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btnOrdenar}>
+        <TouchableOpacity style={styles.btnOrdenar}
+        onPress={handleOrderClick}
+        >
           <Image
             source={require('../../assets/imagens/ordernar.png')}
             style={styles.imgordenar}
@@ -75,10 +114,9 @@ function ServicoPrincipal ({ navigation }) {
           <Text style={styles.txtFiltrar}>Ordenar</Text>
         </TouchableOpacity>
       </View>
-
       <ScrollView>
         <View style={styles.viewprestadores}>
-          {serviceData.map((service, key) => (
+          {lista.map((service, key) => (
             <View style={styles.viewbtnprestadores} key={key}>
               <Text style={styles.txttitulobtn}>{service.tiposervico}</Text>
               <TouchableOpacity style={styles.btnprestadores}
@@ -99,7 +137,6 @@ function ServicoPrincipal ({ navigation }) {
           ))}
         </View>
       </ScrollView>
-
       <Barrabotoes />
     </View>
   )
