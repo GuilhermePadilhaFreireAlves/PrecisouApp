@@ -22,22 +22,22 @@ export function ModalContent ({ handleClose }) {
               </TouchableOpacity>
               <TouchableOpacity style = {styles.btnopcoesModal} >
                 <Text style = {styles.txtbtnmodal}>
-                  Serviços
+                  Encanador
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style = {styles.btnopcoesModal} >
                 <Text style = {styles.txtbtnmodal}>
-                  Serviços
+                  Pintor
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style = {styles.btnopcoesModal} >
                 <Text style = {styles.txtbtnmodal}>
-                  Serviços
+                  Eletricista
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style = {styles.btnopcoesModal} >
                 <Text style = {styles.txtbtnmodal}>
-                  Serviços
+                  Professores
                 </Text>
               </TouchableOpacity>
               </ScrollView>
