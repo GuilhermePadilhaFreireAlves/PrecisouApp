@@ -48,7 +48,7 @@ export function ModalContent ({ handleClose }) {
   )
 }
 ModalContent.propTypes = {
-  handleClose: PropTypes.object.isRequired
+  handleClose: PropTypes.func.isRequired
 }
 const styles = StyleSheet.create({
   container: {
