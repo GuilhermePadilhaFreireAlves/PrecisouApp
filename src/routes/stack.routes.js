@@ -6,11 +6,16 @@ import Barrabotoes from '../components/BarradosBotoes'
 import HomeScreen from '../screens/homeScreen'
 import ServicoPrincipal from '../screens/ServicoPrincipal'
 import Cadastroprestador from '../screens/cadastroPrestador'
+import HomeOFC from '../screens/HomeScreenofc'
 const { Screen, Navigator } = createNativeStackNavigator()
 
 export function StackRoutes () {
   return (
         <Navigator screenOptions={{ headerShown: false }}>
+          <Screen
+          name='homeofcp'
+          component={HomeOFC}
+          />
             <Screen
             name = 'homep'
             component={HomeScreen}
@@ -19,7 +24,7 @@ export function StackRoutes () {
             name = 'servicoprincipalp'
             component={ServicoPrincipal}
             />
-                          <Screen
+             <Screen
             name = 'servicop'
             component={ServicoScreen}
             />

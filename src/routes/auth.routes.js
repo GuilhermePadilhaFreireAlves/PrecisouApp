@@ -6,7 +6,8 @@ import CadastroUsuario from '../screens/cadastroUsuario'
 const { Navigator, Screen } = createNativeStackNavigator()
 export function AuthRoutes () {
   return (
-      <Navigator screenOptions={{ headerShown: false }}>
+
+    <Navigator screenOptions={{ headerShown: false }}>
             <Screen
             name = 'login1p'
             component={LoginScreen}
@@ -19,6 +20,7 @@ export function AuthRoutes () {
             name = 'cadastroUsuariop'
             component={CadastroUsuario}
             />
+
       </Navigator>
   )
 }

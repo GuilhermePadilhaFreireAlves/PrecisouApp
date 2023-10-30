@@ -19,7 +19,7 @@ const Barrabotoes = () => {
       <View style={styles.container}>
         <View style={styles.botaoview}>
           <TouchableOpacity style={styles.btnBotoes}
-            onPress={() => navigateToScreen('homep')}
+            onPress={() => navigateToScreen('homeofcp')}
           >
             <View style={styles.iconandname}>
               <Image
@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
     borderRadius: 23,
     marginTop: 15,
     flexDirection: 'row',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginBottom: 15
   },
   imageBtncasa: {
     width: 48,
