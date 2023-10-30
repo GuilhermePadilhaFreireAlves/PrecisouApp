@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity, Linking } from 'react-native'
 import Barrabotoes from '../components/BarradosBotoes'
 import { Estrelas } from '../components/Estrelas'
 
@@ -37,6 +37,7 @@ export function ServicoScreen ({ route }) {
   const [exibirnomeprestador] = useState(serviceData.nomeprestador)
   const [exibirdescricao] = useState(serviceData.descric)
   const [exibirpreco] = useState(serviceData.precoprestador)
+  const [exibirtelefone] = useState(serviceData.telefone)
 
   return (
     <SafeAreaView>
@@ -71,7 +72,9 @@ export function ServicoScreen ({ route }) {
         </View>
         </View>
 
-            <TouchableOpacity style = {styles.btnIniciarBatePapo}>
+            <TouchableOpacity style = {styles.btnIniciarBatePapo}
+            onPress={() => { Linking.openURL(`whatsapp://send?phone=${exibirtelefone}`) }}
+            >
             <Image
                 source = {require('../../assets/imagens/batepapo.png')} style = {styles.imageBtnBatePapo}
             />
@@ -153,6 +156,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Neucha',
     color: '#000000',
     marginLeft: 17,
+
     marginRight: 17,
     textAlign: 'justify'
   },
