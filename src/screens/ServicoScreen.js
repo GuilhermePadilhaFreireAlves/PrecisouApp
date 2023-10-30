@@ -153,7 +153,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Neucha',
     color: '#000000',
     marginLeft: 17,
-    marginTop: 10,
     marginRight: 17,
     textAlign: 'justify'
   },
