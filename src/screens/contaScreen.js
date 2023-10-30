@@ -1,13 +1,18 @@
 import React, { useContext } from 'react'
 import { View, StyleSheet, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
-import AntDesign from 'react-native-vector-icons/AntDesign'
+// import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Barrabotoes from '../components/BarradosBotoes'
+import auth from '@react-native-firebase/auth'
+// import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import PropTypes from 'prop-types'
 import { NomeContext } from '../contexts/nomeContext'
 export function ContaScreen ({ navigation }) {
   const { nomepa } = useContext(NomeContext)
+  function handleSignOut () {
+    auth().signOut()
+  }
   return (
     <SafeAreaView>
       <View style = {styles.container}>
@@ -42,14 +47,14 @@ export function ContaScreen ({ navigation }) {
           </View>
         </View>
         <View style= {styles.viewBotoes}>
-          <TouchableOpacity style={styles.btnAjuda}>
+          <TouchableOpacity style={styles.btnAjuda} onPress={handleSignOut}>
 
-            <AntDesign
-             name='questioncircleo'
+            <MaterialIcons
+             name='logout'
              size={30}
              color='black'
              />
-              <Text style={styles.textbtn}>Ajuda</Text>
+              <Text style={styles.textbtn}>Logout</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.btnAjuda}>
             <MaterialCommunityIcons
