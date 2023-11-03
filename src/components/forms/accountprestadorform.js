@@ -8,9 +8,10 @@ import {
   Alert
 
 } from 'react-native'
+import PropTypes from 'prop-types'
 import database from '@react-native-firebase/database'
 import auth from '@react-native-firebase/auth'
-export function Accountprestadorform () {
+export function Accountprestadorform ({ navigation }) {
   const [nomepres, setNomepres] = useState('')
   const [cpf, setCpf] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -34,7 +35,10 @@ export function Accountprestadorform () {
       Preco: preco
 
     })
-      .then(() => Alert.alert('Cadastrado com sucesso', 'Voce foi cadastrado com sucesso'))
+      .then(() => Alert.alert('Cadastrado com sucesso', 'Voce foi cadastrado com sucesso'),
+        navigation.navigate('homeofcp')
+
+      )
       .catch((error) => console.log(error))
       .finally(() => setIsLoading(false))
   }
@@ -100,6 +104,12 @@ export function Accountprestadorform () {
           onChangeText={(preco) => setPreco(preco)}
           value={preco}
         />
+                <Text style = {styles.Leiaasinfo}>
+      Leia as informações a baixo
+      </Text>
+      <Text style = {styles.textoconcluir}>
+      Após clicar em “Concluir”, estará sujeito a avaliações realizadas pelos usuários dentro do aplicativo. Além disso, receberá notificações sobre propostas de serviços. De acordo com suas preferências, poderá aceitar ou recusar essas propostas à medida que receber recomendações de serviços.
+      </Text>
 
         <TouchableOpacity
           style={styles.Loginbotao}
@@ -112,6 +122,9 @@ export function Accountprestadorform () {
         </View>
 
   )
+}
+Accountprestadorform.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 const styles = StyleSheet.create({
   containerKeyboard: {
@@ -145,12 +158,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
-    marginTop: 50
+    marginTop: 50,
+    marginBottom: 15
   },
   buttonText: {
     fontSize: 25,
     color: '#ffff',
     fontFamily: 'Neucha'
-  }
+  },
+  Leiaasinfo: {
+    fontFamily: 'Neucha',
+    color: '#289AFF',
+    fontSize: 28,
+    marginTop: 35
 
+  },
+  textoconcluir: {
+    fontFamily: 'Neucha',
+    fontSize: 22,
+    width: 280,
+    textAlign: 'justify',
+    marginTop: 15
+  }
 })

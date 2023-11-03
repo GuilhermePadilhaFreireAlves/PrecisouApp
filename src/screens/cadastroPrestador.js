@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 
 import { Accountprestadorform } from '../components/forms/accountprestadorform'
-const Cadastroprestador = () => {
+const Cadastroprestador = ({ navigation }) => {
   return (
     <ScrollView>
     <View style = {styles.container}>
@@ -12,7 +12,7 @@ const Cadastroprestador = () => {
       source = {require('../../assets/imagens/logo.png')} style = {styles.imageLayout}
       />
       <Text style = {styles.textotitulo}>Adicione novas informações</Text>
-        <Accountprestadorform/>
+        <Accountprestadorform navigation={navigation}/>
     </View>
     </ScrollView>
 
@@ -54,6 +54,19 @@ const styles = StyleSheet.create({
     color: '#289AFF',
     fontFamily: 'Neucha'
 
+  },
+  Leiaasinfo: {
+    fontFamily: 'Neucha',
+    color: '#289AFF',
+    fontSize: 28
+
+  },
+  textoconcluir: {
+    fontFamily: 'Neucha',
+    fontSize: 22,
+    width: 280,
+    textAlign: 'justify',
+    marginTop: 15
   }
 
 })
