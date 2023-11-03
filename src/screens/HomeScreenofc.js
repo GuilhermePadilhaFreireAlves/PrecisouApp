@@ -4,6 +4,33 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feather from 'react-native-vector-icons/Feather'
 import Barrabotoes from '../components/BarradosBotoes'
 const StatusBarHeght = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
+const data = [
+  {
+    prestador: 'Guilherme Padilha',
+    avaliacao: 5,
+    comentario: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
+  },
+  {
+    prestador: 'Guilherme Padilha',
+    avaliacao: 4,
+    comentario: 'Uma ótima faxineira, recomendo muito pena que é desastrada boba'
+  },
+  {
+    prestador: 'Guilherme Padilha',
+    avaliacao: 5,
+    comentario: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa quanto esse entregador, nota 1000'
+  },
+  {
+    prestador: 'Guilherme Padilha',
+    avaliacao: 3,
+    comentario: 'Naaaaaaaaaaaaaaaaaaaaaaaaaaaaa quanto esse entregador, nota 1000'
+  },
+  {
+    prestador: 'Guilherme Padilha',
+    avaliacao: 1,
+    comentario: 'Outro comentário qualquer'
+  }
+]
 export default function HomeOFC () {
   return (
     <View style={styles.container1}>
@@ -112,186 +139,26 @@ export default function HomeOFC () {
 
    </ScrollView>
    <ScrollView>
-                <View style={styles.conteudo}>
-                   <View style={styles.serviço}>
-                        <TouchableOpacity style={styles.buttonUser}>
-                            <FontAwesome name="user" size={27} color="#000000" />
-                        </TouchableOpacity>
+      {data.map((item, index) => (
+        <View style={styles.conteudo} key={index}>
+          <View style={styles.serviço}>
+            <TouchableOpacity style={styles.buttonUser}>
+              <FontAwesome name="user" size={27} color="#000000" />
+            </TouchableOpacity>
 
-                        <Text style={styles.prestador}>
-                            Guilherme Padilha
-                        </Text>
+            <Text style={styles.prestador}>{item.prestador}</Text>
 
-                        <View style={styles.avaliação}>
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        </View>
-                    </View>
+            <View style={styles.avaliação}>
+              {[...Array(item.avaliacao)].map((_, i) => (
+                <FontAwesome key={i} name="star" size={25} color="#f7dd69" />
+              ))}
+            </View>
+          </View>
 
-                <Text>Excelente trabalho, recomendo muito,</Text>
-                <Text>chegou no horário muito simpático</Text>
-
-                </View>
-
-                <View style={styles.conteudo}>
-                <View style={styles.serviço}>
-                        <TouchableOpacity style={styles.buttonUser}>
-                            <FontAwesome name="user" size={27} color="#000000" />
-                        </TouchableOpacity>
-
-                        <Text style={styles.prestador}>
-                            Guilherme Padilha
-                        </Text>
-
-                        <View style={styles.avaliação}>
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-
-                        </View>
-                    </View>
-                    <Text>Uma ótima faxineira, recomendo muito</Text>
-                    <Text>pena que é desastrada boba </Text>
-                </View>
-
-                <View style={styles.conteudo}>
-                <View style={styles.serviço}>
-                        <TouchableOpacity style={styles.buttonUser}>
-                            <FontAwesome name="user" size={27} color="#000000" />
-                        </TouchableOpacity>
-
-                        <Text style={styles.prestador}>
-                            Guilherme Padilha
-                        </Text>
-
-                        <View style={styles.avaliação}>
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        </View>
-                    </View>
-                    <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
-                    <Text>quanto esse entregador, nota 1000</Text>
-                </View>
-
-                <View style={styles.conteudo}>
-                <View style={styles.serviço}>
-                        <TouchableOpacity style={styles.buttonUser}>
-                            <FontAwesome name="user" size={27} color="#000000" />
-                        </TouchableOpacity>
-
-                        <Text style={styles.prestador}>
-                            Guilherme Padilha
-                        </Text>
-
-                        <View style={styles.avaliação}>
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-
-                        </View>
-                    </View>
-                    <Text>Naaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
-                    <Text>quanto esse entregador, nota 1000</Text>
-                </View>
-
-                <View style={styles.conteudo}>
-                <View style={styles.serviço}>
-                        <TouchableOpacity style={styles.buttonUser}>
-                            <FontAwesome name="user" size={27} color="#000000" />
-                        </TouchableOpacity>
-
-                        <Text style={styles.prestador}>
-                            Guilherme Padilha
-                        </Text>
-
-                        <View style={styles.avaliação}>
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        <FontAwesome name="star"
-                        size={25}
-                        color="#f7dd69"
-                        />
-                        </View>
-                    </View>
-                    <View style={styles.comentario}>
-                    <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
-                    <Text>quanto esse entregador, nota 1000</Text>
-                    </View>
-                </View>
-
-            </ScrollView>
+          <Text>{item.comentario}</Text>
+        </View>
+      ))}
+    </ScrollView>
         <Barrabotoes/>
     </View>
 
@@ -389,7 +256,7 @@ const styles = StyleSheet.create({
   },
   container4: {
     backgroundColor: '#289AFF',
-    paddingTop: StatusBarHeght,
+    paddingTop: 20,
     paddingStart: 10,
     paddingEnd: 16
   },
@@ -397,8 +264,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingStart: 8,
     color: '#FFF',
-    fontWeight: 'bold',
-    top: 6
+    fontWeight: 'bold'
   },
 
   barra: {
@@ -418,7 +284,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   View: {
-    top: -35
+    top: -10
   }
 
 })
