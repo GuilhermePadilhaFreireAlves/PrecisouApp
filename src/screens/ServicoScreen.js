@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity, Linking } from 'react-native'
 import Barrabotoes from '../components/BarradosBotoes'
 import { Estrelas } from '../components/Estrelas'
-
+import PropTypes from 'prop-types'
 const comentarios = [
   {
     nome: 'Marcos',
@@ -119,7 +119,9 @@ export function ServicoScreen ({ route }) {
     </SafeAreaView>
   )
 }
-
+ServicoScreen.propTypes = {
+  route: PropTypes.object.isRequired
+}
 const styles = StyleSheet.create({
   container: {
     marginTop: 15,
