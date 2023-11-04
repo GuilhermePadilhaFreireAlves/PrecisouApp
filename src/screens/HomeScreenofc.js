@@ -1,37 +1,54 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, StatusBar, Platform, TextInput } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feather from 'react-native-vector-icons/Feather'
 import Barrabotoes from '../components/BarradosBotoes'
+import PropTypes from 'prop-types'
+import database from '@react-native-firebase/database'
 const StatusBarHeght = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
-const data = [
-  {
-    prestador: 'Guilherme Padilha',
-    avaliacao: 5,
-    comentario: 'Excelente trabalho, recomendo muito, chegou no horário muito simpático'
-  },
-  {
-    prestador: 'Guilherme Padilha',
-    avaliacao: 4,
-    comentario: 'Uma ótima faxineira, recomendo muito pena que é desastrada boba'
-  },
-  {
-    prestador: 'Guilherme Padilha',
-    avaliacao: 5,
-    comentario: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa quanto esse entregador, nota 1000'
-  },
-  {
-    prestador: 'Guilherme Padilha',
-    avaliacao: 3,
-    comentario: 'Naaaaaaaaaaaaaaaaaaaaaaaaaaaaa quanto esse entregador, nota 1000'
-  },
-  {
-    prestador: 'Guilherme Padilha',
-    avaliacao: 1,
-    comentario: 'Outro comentário qualquer'
-  }
-]
-export default function HomeOFC () {
+
+export default function HomeOFC ({ navigation }) {
+  const [serviceData, setServiceData] = useState([])
+  const [lista, setLista] = useState(serviceData)
+  const [searchText, setSearchText] = useState('')
+  // const [randomnumber, setRandomNumber] = useState(null)
+  // useEffect(() => {
+  // setRandomNumber(Math.floor(Math.random() * 4) + 1)
+  // })
+  useEffect(() => {
+    async function dadosq () {
+      database().ref('prestadores').on('value', (snapshot) => {
+        setServiceData([])
+        snapshot.forEach((childItem) => {
+          const data = {
+            key: childItem.key,
+            nomeprestador: childItem.val().NomeP,
+            tiposervico: childItem.val().Tiposerv,
+            descric: childItem.val().Desc,
+            precoprestador: childItem.val().Preco,
+            telefone: childItem.val().Tel
+          }
+          setServiceData(oldArray => [...oldArray, data])
+        })
+      })
+    }
+    dadosq()
+  }, [])
+  useEffect(() => {
+    setLista(serviceData)
+  }, [serviceData])
+
+  useEffect(() => {
+    if (searchText === '') {
+      setLista(serviceData)
+    } else {
+      setLista(
+        serviceData.filter(item => {
+          return (item.tiposervico.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
+        })
+      )
+    }
+  }, [searchText])
   return (
     <View style={styles.container1}>
             <View style={styles.container4}>
@@ -47,6 +64,8 @@ export default function HomeOFC () {
                     placeholder='Pesquisar'
                     autoCapitalize="none"
                     autoCorrect={false}
+                    value={searchText}
+                    onChangeText={(t) => setSearchText(t)}
                 />
             </View>
 
@@ -139,23 +158,25 @@ export default function HomeOFC () {
 
    </ScrollView>
    <ScrollView>
-      {data.map((item, index) => (
-        <View style={styles.conteudo} key={index}>
+      {lista.map((service, key) => (
+        <View style={styles.conteudo} key={key}>
           <View style={styles.serviço}>
-            <TouchableOpacity style={styles.buttonUser}>
+            <TouchableOpacity style={styles.buttonUser}
+             onPress={() => navigation.navigate('servicop', { serviceData: service })}
+            >
               <FontAwesome name="user" size={27} color="#000000" />
             </TouchableOpacity>
 
-            <Text style={styles.prestador}>{item.prestador}</Text>
+            <Text style={styles.prestador}>{service.nomeprestador}</Text>
 
             <View style={styles.avaliação}>
-              {[...Array(item.avaliacao)].map((_, i) => (
-                <FontAwesome key={i} name="star" size={25} color="#f7dd69" />
-              ))}
+            {[...Array(4)].map((_, i) => (
+            <FontAwesome key={i} name="star" size={25} color="#f7dd69" />
+            ))}
             </View>
           </View>
-
-          <Text>{item.comentario}</Text>
+          <Text style={styles.tiposervicostyle}> {service.tiposervico}</Text>
+          <Text style={styles.desricao}>{service.descric}</Text>
         </View>
       ))}
     </ScrollView>
@@ -163,6 +184,9 @@ export default function HomeOFC () {
     </View>
 
   )
+}
+HomeOFC.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 
 const styles = StyleSheet.create({
@@ -222,25 +246,25 @@ const styles = StyleSheet.create({
   },
 
   buttonUser: {
-    alignSelf: 'flex-start',
-    bottom: -6,
     backgroundColor: 'rgba(255,255,255, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 44 / 2,
     width: 25,
     height: 30,
-    start: 10
-
+    start: 10,
+    alignSelf: 'center'
   },
   serviço: {
-    flex: 0.34,
+    flex: 0.70,
     width: '97%',
     backgroundColor: 'rgba(255,255,255, 0.5)',
-    bottom: 30,
+    bottom: 15,
     flexDirection: 'row',
-    borderRadius: 30 / 2,
-    justifyContent: 'space-between'
+    borderRadius: 15,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 15
   },
   prestador: {
     alignSelf: 'center',
@@ -251,7 +275,7 @@ const styles = StyleSheet.create({
   avaliação: {
     flexDirection: 'row',
     end: 10,
-    bottom: -8
+    alignSelf: 'center'
 
   },
   container4: {
@@ -285,6 +309,17 @@ const styles = StyleSheet.create({
   },
   View: {
     top: -10
+  },
+  desricao: {
+    fontFamily: 'Neucha',
+    marginHorizontal: 15,
+    fontSize: 15,
+    textAlign: 'justify'
+  },
+  tiposervicostyle: {
+    fontFamily: 'Neucha',
+    fontSize: 25,
+    marginBottom: 15
   }
 
 })
