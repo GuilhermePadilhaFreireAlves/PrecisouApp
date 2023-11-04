@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
-export function ModalContent ({ handleClose }) {
+export function ModalContent ({ handleClose, handleModalButtonClick }) {
   return (
     <View style = {styles.container}>
               <TouchableOpacity
@@ -10,32 +10,44 @@ export function ModalContent ({ handleClose }) {
         >
             <View style = {styles.viewbotoes}>
             <ScrollView>
-                <TouchableOpacity style = {styles.btnopcoesModal} >
+            <TouchableOpacity style = {styles.btnopcoesModal}
+                onPress={() => handleModalButtonClick('')}
+                >
+                <Text style = {styles.txtbtnmodal}>
+                  Todos os serviços
+                </Text>
+              </TouchableOpacity>
+                <TouchableOpacity style = {styles.btnopcoesModal}
+                onPress={() => handleModalButtonClick('Limpeza')}
+                >
                 <Text style = {styles.txtbtnmodal}>
                   Limpeza
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style = {styles.btnopcoesModal} >
-                <Text style = {styles.txtbtnmodal}>
-                  Serviços
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style = {styles.btnopcoesModal} >
+              <TouchableOpacity style = {styles.btnopcoesModal}
+              onPress={() => handleModalButtonClick('Encanador')}
+              >
                 <Text style = {styles.txtbtnmodal}>
                   Encanador
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style = {styles.btnopcoesModal} >
+              <TouchableOpacity style = {styles.btnopcoesModal}
+              onPress={() => handleModalButtonClick('Pintor')}
+              >
                 <Text style = {styles.txtbtnmodal}>
                   Pintor
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style = {styles.btnopcoesModal} >
+              <TouchableOpacity style = {styles.btnopcoesModal}
+              onPress={() => handleModalButtonClick('Eletricista')}
+              >
                 <Text style = {styles.txtbtnmodal}>
                   Eletricista
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style = {styles.btnopcoesModal} >
+              <TouchableOpacity style = {styles.btnopcoesModal}
+              onPress={() => handleModalButtonClick('Professor')}
+              >
                 <Text style = {styles.txtbtnmodal}>
                   Professores
                 </Text>
@@ -48,7 +60,8 @@ export function ModalContent ({ handleClose }) {
   )
 }
 ModalContent.propTypes = {
-  handleClose: PropTypes.func.isRequired
+  handleClose: PropTypes.func.isRequired,
+  handleModalButtonClick: PropTypes.func.isRequired
 }
 const styles = StyleSheet.create({
   container: {

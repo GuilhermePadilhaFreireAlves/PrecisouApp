@@ -10,7 +10,8 @@ function ServicoPrincipal ({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false)
   const [serviceData, setServiceData] = useState([])
   const [lista, setLista] = useState(serviceData)
-  const [searchText, setSearchText] = useState('')
+  const [titulomodal, setTituloModal] = useState('Escolha um serviço')
+  const [searchText, setSearchText] = useState()
   useEffect(() => {
     async function dadosq () {
       database().ref('prestadores').on('value', (snapshot) => {
@@ -62,6 +63,14 @@ function ServicoPrincipal ({ navigation }) {
     setLista(newlista)
   }
 
+  const handleModalButtonClick = (searchValue) => {
+    setSearchText(searchValue)
+    setModalVisible(false)
+    if (searchValue === '') {
+      setTituloModal('Escolha um serviço')
+    } else { setTituloModal(searchValue) }
+  }
+
   return (
     <View style={styles.container}>
 
@@ -81,7 +90,7 @@ function ServicoPrincipal ({ navigation }) {
               ? { borderTopRightRadius: 14, borderTopLeftRadius: 14 }
               : { borderRadius: 14 }
           ]}>
-          <Text style={styles.txtservicodom}>Serviços Domesticos</Text>
+          <Text style={styles.txtservicodom}>{titulomodal}</Text>
         </TouchableOpacity>
         <Modal
           animationType="fade"
@@ -91,7 +100,7 @@ function ServicoPrincipal ({ navigation }) {
           onRequestClose={() => setModalVisible(false)}
           propagateSwipe={true}>
           <ScrollView>
-            <ModalContent handleClose={() => setModalVisible(false)} />
+            <ModalContent handleClose={() => setModalVisible(false)} handleModalButtonClick={handleModalButtonClick} />
           </ScrollView>
         </Modal>
       </View>
@@ -159,7 +168,8 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: '#ADD9FF',
     padding: 10,
-    borderRadius: 14
+    borderRadius: 14,
+    fontFamily: 'Neucha'
   },
   btnModaldomestico: {
     backgroundColor: '#ADD9FF',
